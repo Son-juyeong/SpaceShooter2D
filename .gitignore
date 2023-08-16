@@ -70,3 +70,9 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+SpaceShooter2D/Library/
+SpaceShooter2D/Logs/
+SpaceShooter2D/.vsconfig
+SpaceShooter2D/Temp/
+SpaceShooter2D/UserSettings/
+SpaceShooter2D/obj/
