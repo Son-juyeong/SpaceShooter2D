@@ -4,39 +4,25 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-
-    private float moveSpeed = 8f;
+    private float moveSpeed = 7.5f;
 
     // Start is called before the first frame update
-    void Start()
+    /*void Start()
     {
-        GameObject player = GameObject.Find("Player");
-        Vector3 position = player.transform.position;
-        position += Vector3.up*0.7f;
-        this.transform.position = position;
-    }
+
+    }*/
 
     // Update is called once per frame
     void Update()
     {
         this.transform.Translate(Vector2.up * moveSpeed * Time.deltaTime);
         if (this.transform.position.y >= 5.2f)
-            Destroy(this.gameObject);
+            this.DestroyBullet();
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void DestroyBullet()
     {
-        MonsterController monsterController = collision.GetComponent<MonsterController>();
-        if (monsterController != null)
-        {
-            StartCoroutine(CoAttack(monsterController));
-        }
-    }
-
-    private IEnumerator CoAttack(MonsterController target)
-    {
-        target.Die();
-        yield return null;
-        Destroy(this.gameObject);
+        this.gameObject.SetActive(false);
+        this.transform.SetParent(BulletPoolManager.instance.transform);
+        this.transform.localPosition = Vector2.zero;
     }
 }
